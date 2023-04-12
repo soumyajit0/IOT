@@ -16,7 +16,7 @@ void setup() {
   
   pinMode(led2,OUTPUT);
   WiFi.begin(ssid,password);
-  ThingSpeak.begin(cliet);
+  ThingSpeak.begin(client);
 }
 
 void loop() {
@@ -25,7 +25,7 @@ void loop() {
   ThingSpeak.writeField(myChannelNumber,1,val,myWriteAPIkey);
   led_1=ThingSpeak.readIntField(myChannelNumber,1,myReadAPIkey);
   Serial.println(led_1);
-  if(led_1<200)
+  if(led_1<400)
   {
     digitalWrite(led2,HIGH);
   }
